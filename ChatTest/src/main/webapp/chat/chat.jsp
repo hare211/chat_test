@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.5.1/dist/sockjs.min.js"></script>
@@ -11,9 +11,9 @@
 </head>
 <body>
 	<div id="app">
-		<h2>Å×½ºÆ®</h2>
+		<h2>í…ŒìŠ¤íŠ¸</h2>
 		<div v-for="(msg, index) in messages" :key="index">{{msg.sender}}: {{msg.content}}</div>
-		<input v-model="inputSender" placeholder="´Ð³×ÀÓ ÀÔ·Â">
+		<input v-model="inputSender" placeholder="ë‹‰ë„¤ìž„ ìž…ë ¥">
 		<input v-model="message" @keyup.enter="sendMessage">
 	</div>
 	
@@ -34,7 +34,7 @@
 				this.stompClient = Stomp.over(socket);
 				
 				this.stompClient.connect({}, () => {
-					console.log("STOMP ¿¬°á");
+					console.log("STOMP ì—°ê²°");
 					
 					this.stompClient.subscribe("/topic/messages", (msg) => {
 						const body = JSON.parse(msg.body);
