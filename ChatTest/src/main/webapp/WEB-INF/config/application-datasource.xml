@@ -10,13 +10,19 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 	<util:properties id="db" location="/WEB-INF/config/db.properties"/>
+	
 	<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource"
 		p:driverClassName="#{db['driver']}"
 		p:url="#{db['url']}"
 		p:username="#{db['username']}"
 		p:password="#{db['password']}"
 	/>
-	<tx:annotation-driven/>
+	<bean id="txManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+          p:dataSource-ref="ds" />
+          
+	<tx:annotation-driven transaction-manager="txManager"/>
+	
 	<bean id="ssf"
 		class="org.mybatis.spring.SqlSessionFactoryBean"
 		p:dataSource-ref="ds"

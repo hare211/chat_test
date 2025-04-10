@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class ChatMessage {
-	private String sender, content, roomId;
-	
+public class RoomsVO {
+	private long room_id;
+	private String room_name;
 }
