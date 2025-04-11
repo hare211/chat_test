@@ -17,6 +17,7 @@ public class ChatController {
 	public String chat() {
 		return "chat/chat";
 	}
+	// 메세지 경로 각 room 으로 변경해야 될 필요 있음
 	@MessageMapping("/chat")
     public void handleMessage(ChatMessageVO message) { // 실제 구현에선 Principal 에서 userId 추출
 		String userId = "user"; // 테스트용 user, 실제 구현에서는 로그인 된 사용자의 Id 를 가져와야 함
