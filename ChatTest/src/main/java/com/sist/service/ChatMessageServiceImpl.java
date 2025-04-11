@@ -11,14 +11,14 @@ import org.springframework.transaction.annotation.Transactional;
 import com.sist.dao.ChatMessageDAO;
 import com.sist.vo.ChatMessageVO;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class ChatMessageServiceImpl implements ChatMessageService {
 
-	@Autowired
-	private SimpMessagingTemplate messagingTemplate;
-	
-	@Autowired
-	private ChatMessageDAO cDao;
+	private final SimpMessagingTemplate messagingTemplate;
+	private final ChatMessageDAO cDao;
 	
 	@Transactional
 	@Override

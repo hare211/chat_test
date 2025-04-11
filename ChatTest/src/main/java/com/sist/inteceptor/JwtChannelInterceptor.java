@@ -9,14 +9,14 @@ import org.springframework.stereotype.Component;
 
 import com.sist.util.JwtUtil;
 
+import lombok.RequiredArgsConstructor;
+
 @Component
+@RequiredArgsConstructor
 public class JwtChannelInterceptor implements ChannelInterceptor {
 
     private final JwtUtil jwtUtil;
 
-    public JwtChannelInterceptor(JwtUtil jwtUtil) {
-        this.jwtUtil = jwtUtil;
-    }
 
     @Override
     public Message<?> preSend(Message<?> message, MessageChannel channel) {

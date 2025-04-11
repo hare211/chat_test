@@ -9,10 +9,12 @@ import org.springframework.stereotype.Repository;
 import com.sist.mapper.ChatMessageMapper;
 import com.sist.vo.ChatMessageVO;
 
+import lombok.RequiredArgsConstructor;
+
 @Repository
+@RequiredArgsConstructor
 public class ChatMessageDAO {
-	@Autowired
-	private ChatMessageMapper mapper;
+	private final ChatMessageMapper mapper;
 	/** 메시지 저장 */
 	public void chatMessageInsert(ChatMessageVO vo) {
 		mapper.chatMessageInsert(vo);

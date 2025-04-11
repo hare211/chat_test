@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sist.service.ChatMessageService;
 import com.sist.vo.ChatMessageVO;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
+@RequiredArgsConstructor
 public class ChatRestController {
-	@Autowired
-	private ChatMessageService chatService;
+	private final ChatMessageService chatService;
 	
 	@GetMapping("/chat/{room_id}/messages")
 	public ResponseEntity<List<ChatMessageVO>> getMessages(@PathVariable("room_id") int room_id) {

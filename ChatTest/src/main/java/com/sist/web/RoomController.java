@@ -15,12 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sist.service.ChatMessageService;
 import com.sist.vo.RoomsVO;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/chat")
 public class RoomController {
 	
-	@Autowired
-	private ChatMessageService chatService;
+	private final ChatMessageService chatService;
 	
 	@GetMapping("/room")
 	public List<Map<String, String>> getRoom() {

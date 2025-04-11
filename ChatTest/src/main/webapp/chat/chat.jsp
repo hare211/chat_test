@@ -63,7 +63,12 @@
 	</div>
 	
 	<script>
-		// test 
+		/*
+			TO-DO
+			1. 방 목록 출력 - rooms 테이블에서 모든 room_id 조회
+			2. 방 구독 - sub_rooms 에 user_id, room_id insert
+			3. 구독한 방만 출력(내 그룹 보기) - sub_rooms 에서 user_id 로 조회 후 room_id 반환 받고 rooms 테이블에서 room_id 조회 
+		*/
 		let contextPath = '<%= request.getContextPath() %>';
 		//const accessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzQ0MTY0MDMzLCJleHAiOjE3NDQxNjc2MzN9.ePS7l9OH0wX0uq583M5WTKGHqkiZW3agL42-so1q2vI';
 		let app = Vue.createApp({
@@ -143,7 +148,7 @@
 					this.subscribeRoom();
 				},
 				sendMessage() {
-					if (!this.message) {
+					if (!this.message.trim()) {
 						return;
 					}
 					const chatMessage = {
