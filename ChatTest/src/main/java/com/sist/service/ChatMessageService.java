@@ -7,6 +7,6 @@ import com.sist.vo.ChatMessageVO;
 
 public interface ChatMessageService {
 	void chatMessageInsert(ChatMessageVO vo, String sender_id);
-	List<ChatMessageVO> getLatestMessagesByRoomId(int room_id);
-	void createRoom(String room_name);
+	List<ChatMessageVO> getLatestMessagesByRoomId(long room_id);
+	void createRoom(String room_name, String user_id);
 }

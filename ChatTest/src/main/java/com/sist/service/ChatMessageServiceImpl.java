@@ -39,13 +39,18 @@ public class ChatMessageServiceImpl implements ChatMessageService {
 	}
 
 	@Override
-	public List<ChatMessageVO> getLatestMessagesByRoomId(int room_id) {
+	public List<ChatMessageVO> getLatestMessagesByRoomId(long room_id) {
 		return cDao.getLatestMessagesByRoomId(room_id);
 	}
-
+	
+	@Transactional
 	@Override
-	public void createRoom(String room_name) {
-		cDao.createRoom(room_name);
+	public void createRoom(String room_name, String user_id) {
+		int room_id = cDao.getNextRoomId();
+		// 방 생성 후
+		cDao.createRoom(room_id, room_name);
+		// 생성한 사용자는 자동 구독
+		cDao.subRoom(room_id, user_id);
 	}
 
 }

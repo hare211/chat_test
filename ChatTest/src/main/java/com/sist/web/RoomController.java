@@ -46,7 +46,7 @@ public class RoomController {
 		String user_id = body.get("user_id");
 		String room_name = body.get("room_name");
 		
-		chatService.createRoom(room_name);
+		chatService.createRoom(room_name, user_id);
 		
 		Map<String, Object> res = new HashMap<String, Object>();
 		res.put("result", "success");

@@ -18,15 +18,19 @@ public class ChatMessageDAO {
 		mapper.chatMessageInsert(vo);
 	}
 	/** 최근 메시지 20개 조회 */
-	public List<ChatMessageVO> getLatestMessagesByRoomId(int room_id) {
+	public List<ChatMessageVO> getLatestMessagesByRoomId(long room_id) {
 		return mapper.getLatestMessagesByRoomId(room_id);
 	}
+	/** room_id 가져오기 */
+	public int getNextRoomId() {
+		return mapper.getNextRoomId();
+	}
 	/** 그룹 생성 */
-	public void createRoom(String room_name) {
-		mapper.createRoom(room_name);
+	public void createRoom(long room_id, String room_name) {
+		mapper.createRoom(room_id, room_name);
 	}
 	/** 그룹 구독 */
-	public void subRoom(Map<String, Object> map) {
-		mapper.subRoom(map);
+	public void subRoom(long room_id, String user_id) {
+		mapper.subRoom(room_id, user_id);
 	}
 }
